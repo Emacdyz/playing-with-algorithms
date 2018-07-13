@@ -12,9 +12,10 @@
 //   4
 //   buzz
 
+// Solution 1 
+
 function fizzBuzz(n) {
     for (i = 1; i < n + 1; i++) {
-        // console.log(i)
         if (i % 3 === 0 && i % 5 === 0) {
             console.log('fizzbuzz')
         } else if (i % 5 === 0) {
@@ -27,6 +28,18 @@ function fizzBuzz(n) {
     }
 }
 
-fizzBuzz(15)
+// Solution 2 
 
-module.exports = fizzBuzz;
+function fizzBuzz2(n) {
+    for (i = 1; i < n + 1; i++) {
+        let multipleOf3 =  i % 3 === 0;
+        let multipleOf5 = i % 5 === 0;
+
+        console.log( multipleOf3 ? multipleOf5 ? 'fizzbuzz': 'fizz' : multipleOf5 ? 'buzz' : i)
+    }
+}
+
+fizzBuzz(15)
+fizzBuzz2(15)
+
+module.exports = fizzBuzz, fizzBuzz2;
