@@ -11,10 +11,9 @@
 
 // Solution 1
 function chunk(array, size) {
-    let arrayLength = array.length;
     let chunked = [];
     
-    for (i = 0; i < arrayLength; i += size) {
+    for (i = 0; i < array.length; i += size) {
         myChunk = array.slice(i, i + size);
         chunked.push(myChunk);
     }
@@ -37,7 +36,21 @@ function chunk2(array, size) {
     return chunked;
 }
 
-// console.log(chunk([1, 2, 3, 4], 2));
-console.log(chunk2([1, 2, 3, 4, 5, 6, 7, 8], 3))
+// Solution 3
+function chunk3(array, size) {
+    const chunked = [];
+    let index = 0;
 
-module.exports = chunk, chunk2;
+    while (index < array.length ) {
+        chunked.push(array.slice(index, index + size));
+        index += size;
+    }
+
+    return chunked;
+}
+
+// console.log(chunk([1, 2, 3, 4], 2));
+// console.log(chunk2([1, 2, 3, 4, 5, 6, 7, 8], 3));
+console.log(chunk3([1, 2, 3, 4, 5, 6, 7, 8], 3));
+
+module.exports = chunk, chunk2, chunk3;
