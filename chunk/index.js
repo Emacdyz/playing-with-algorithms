@@ -12,15 +12,32 @@
 // Solution 1
 function chunk(array, size) {
     let arrayLength = array.length;
-    let tempArray = [];
+    let chunked = [];
     
     for (i = 0; i < arrayLength; i += size) {
         myChunk = array.slice(i, i + size);
-        tempArray.push(myChunk);
+        chunked.push(myChunk);
     }
-    return tempArray;
+    return chunked;
 }
 
-console.log(chunk([1, 2, 3, 4], 2))
+// Solution 2
+function chunk2(array, size) {
+    const chunked = [];
 
-module.exports = chunk;
+    for (let element of array) {
+        const last = chunked[chunked.length - 1]
+
+        if (!last || last.length === size) {
+            chunked.push([element])
+        } else {
+            last.push(element)
+        }
+    }
+    return chunked;
+}
+
+// console.log(chunk([1, 2, 3, 4], 2));
+console.log(chunk2([1, 2, 3, 4, 5, 6, 7, 8], 3))
+
+module.exports = chunk, chunk2;
